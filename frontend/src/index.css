@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --color-bg: #1f1f38;
+  --color-bg-variant: #2c2c6c;
+  --color-bg-variant-2: #373784;
+  --color-primary: #009e99;
+--color-primary-variant: #126a76;
+  --color-white: #fff;
+  --color-light: rgba(255, 255, 255, 0.6);
+  --container-width-lg: 75%;
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
+  --transition: all 400ms ease;
+}
+
+
+.common-btn {
+  width: max-content;
+  display: inline-block;
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
+  transition: var(--transition);
+  background-color: var(--color-primary);
+}
+
+.common-btn link{
+  color: white;
+}
+
+.common-btn:hover{
+  background: var(--color-white);
+  border-color: var(--color-primary);
+}

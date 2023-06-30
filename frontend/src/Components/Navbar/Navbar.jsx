@@ -2,15 +2,18 @@ import React, { useContext, useState } from 'react';
 import './Navbar.css';
 import Announcement from '../Announcement/Announcement.jsx';
 import { Fragment } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
-import {GrSearch} from 'react-icons/gr';
+import { GrSearch } from 'react-icons/gr';
+import { BiSolidRightArrow } from 'react-icons/bi';
 
 function Navbar() {
 
   const { user } = useContext(UserContext);
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -31,12 +34,17 @@ function Navbar() {
             {/* <div className='nav-lang'>
             En
           </div> */}
-            <div className='nav-search-Container'>
-              <form onSubmit={searchSubmitHandler}>
-                <input placeholder='Search' className='nav-search-Input' onChange={(e) => setKeyword(e.target.value)} />
-                <button type="submit"><GrSearch /></button>
-              </form>
-            </div>
+            {! isHomePage && (
+              <div className='nav-search-Container'>
+                <form onSubmit={searchSubmitHandler}>
+                  <input placeholder='Search' className='nav-search-Input' onChange={(e) => setKeyword(e.target.value)} />
+                  <button type="submit"><GrSearch /></button>
+                </form>
+              </div>
+            )}
+            {/* <div className='nav-menu-Item mobile-disable btn-explore'>
+              <Link className='nav-logo-Container-link explore-btn' to='/explore'>Explore</Link>
+            </div> */}
           </div>
           <div className='nav-center'>
             <div className='nav-logo'>
