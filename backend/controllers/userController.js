@@ -8,45 +8,56 @@ const crypto = require("crypto");
 // const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 
-exports.registerUser = catchError(async (req, res, next) => {
+// exports.registerUser = catchError(async (req, res, next) => {
 
-  const { name, email, password,avatar } = req.body;
+//   const { name, email, password, avatar } = req.body;
+//   const userCheck = await User.findOne({ email });
+//   if (userCheck) {
+//     // return next(new ErrorHandler("Email Is Already In Use", 401));
+//     return res.status(400).json({ errorMessage: "Email Is Already In Use" });
+//   }
+
+//   // const file = fs.readFileSync("C:/Users/Admin/Desktop/login background.jpg");
+//   // const myCloud = await cloudinary.uploader.upload("C:/Users/Admin/Desktop/login background.jpg", {
+//   //   folder: "Avatars",
+//   //   width: 150,
+//   //   crop: "scale",
+//   // });
+
+
+//   console.log("SignUp Name123: ", name);
+//   console.log("SignUp Avatar123: ", email);
+//   console.log("SignUp Email123: ", password);
+
+
+//   const user = await User.create({
+//     name, email, password
+//   })
+//   generateToken(user, 201, res);
+// })
+exports.registerUser = catchError(async (req, res, next) => {
+  res.json({ "userse": "jaydeep" });  const { name, email, password } = req.body;
   const userCheck = await User.findOne({ email });
   if (userCheck) {
-    return next(new ErrorHandler("Email Is Already In Use", 401));
+    res.status(400).json({ 'errorMessage': "Email Is Already In Use" });
   }
-
-  // const file = fs.readFileSync("C:/Users/Admin/Desktop/login background.jpg");
-    // const myCloud = await cloudinary.uploader.upload("C:/Users/Admin/Desktop/login background.jpg", {
-    //   folder: "Avatars",
-    //   width: 150,
-    //   crop: "scale",
-    // });
-    const myCloud = {url : "Temp url hai bro"};
-  console.log("url",myCloud.url);
-
-
-  // console.log("SignUp Name123: ", name);
-  // console.log("SignUp Avatar123: ", email);
-  // console.log("SignUp Email123: ", password);
-  // console.log("Password123: ", avatar);
-
-
-  const user = await User.create({
-    name, email, password,
-    avatar: {
-      public_id: "myCloud.public_id",
-      url: "myCloud.secure_url"
-    }
-  })
-  generateToken(user, 201, res);
+  try {
+    const UserData = await User.create({
+      name, email, password: bcrypt.hashSync(password, bcrypt_secret)
+    })
+    res.json(UserData);
+  } catch (e) {
+    res.status(422).json(e);
+  }
 })
 
 // User Login
 
 exports.loginUser = catchError(async (req, res, next) => {
+  console.log("Hello bhai poch gai end pe congrats");
+  res.json({ "userse": "asd" });
   const { email, password } = req.body;
-  
+
   // Check if both email and password is entered by user
   if (!email || !password) {
     return next(new ErrorHandler("Please Enter Both Email, And Password", 400));
@@ -69,7 +80,7 @@ exports.loginUser = catchError(async (req, res, next) => {
 
 exports.logoutUser = catchError(async (req, res, next) => {
 
-    res.cookie("token", null, {
+  res.cookie("token", null, {
     expires: new Date(Date.now()),
     httpOnly: true
   })
@@ -211,12 +222,12 @@ exports.getUser = catchError(async (req, res, next) => {
   if (!user) {
     return next(
       new ErrorHandler(`User Does Not Exist With Id ${req.params.id}`)
-  );
+    );
   }
-res.status(200).json({
-  success: true,
-  user
-})
+  res.status(200).json({
+    success: true,
+    user
+  })
 })
 
 
@@ -247,7 +258,7 @@ exports.deleteUser = catchError(async (req, res, next) => {
 
   const user = await User.findById(req.params.id);
 
-  if(!user){
+  if (!user) {
     return next(
       new ErrorHandler(`User does not exist with id: ${req.params.id}`)
     );

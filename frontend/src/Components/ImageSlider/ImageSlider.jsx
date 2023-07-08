@@ -31,14 +31,12 @@ const ImageSlider = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Auto slide every 3 seconds
     const interval = setInterval(() => {
       setCurrentImageIndex(prevIndex =>
         (prevIndex + 1) % images.length
       );
     }, 3000);
 
-    // Clean up the interval
     return () => clearInterval(interval);
   }, [images.length]);
 

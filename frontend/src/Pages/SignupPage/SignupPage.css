@@ -1,0 +1,149 @@
+.login {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px auto;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 20px;
+    min-height: 400px;
+    box-shadow: 0px 0px 20px #cbced1;
+}
+
+.login .left img {
+    width: 500px;
+    height: 450px;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.login .left {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.login .right {
+    min-height: 450px;
+    width: 50%;
+    margin: auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ecf0f3;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.login .logo {
+    width: 80px;
+    margin: auto;
+}
+
+.login .logo img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #03A9F4;
+    box-shadow: 0px 0px 3px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7, -8px -8px 15px #fff
+}
+
+.login .right .name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: #555
+}
+
+.login .right .form-field input {
+    width: 90%;
+    margin: 30px;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 10px 15px 10px 10px
+}
+
+.login .right .form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff
+}
+
+.login .right .form-field .fas {
+    color: #555
+}
+
+.login .right .btn {
+    box-shadow: none;
+    font-size: 1.3vmax;
+    width: 100%;
+    height: 40px;
+    background-color: #025c64;
+    color: #fff;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+    letter-spacing: 1.3px
+}
+
+.login .right .btn:hover {
+    background-color: #023f44;
+}
+
+.login .right a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #03A9F4
+}
+
+.login .right a:hover {
+    color: #039BE5
+}
+
+.login .login-forget-password{
+    margin-top: 10px;
+}
+
+.login .login-forget-password span{
+    font-size: 1vmax;
+}
+
+.login .login-signup{
+    margin-top: 10px;
+}
+
+.login .login-signup span{
+    font-size: 1vmax;
+}
+
+@media(max-width: 1250px) {
+    .login .right {
+        width: 100%;
+    }
+    .login .login-forget-password span{
+        font-size: 2vmax;
+    }
+    .login .login-signup span{
+        font-size: 2vmax;
+    }    
+    .login .right .btn {
+        font-size: 2vmax;
+    }
+}
+
+@media(max-width: 600px) {
+    .login .left {
+        display: none;
+    }
+    .login {
+        width: 95%;
+    }
+    .login .right {
+        border-radius: 15px 15px 15px 15px;
+    }
+}

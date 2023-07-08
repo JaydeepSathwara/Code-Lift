@@ -27,11 +27,11 @@ const userSchema = new mongoose.Schema({
   avatar: {
     public_id: {
       type: String,
-      required: true,
+      required: false,
     },
     url: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   role: {
@@ -56,11 +56,11 @@ userSchema.pre("save", async function (next) {
 });
 
 // JWT TOKEN
-userSchema.methods.getJWTToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
-  });
-};
+// userSchema.methods.getJWTToken = function () {
+//   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+//     expiresIn: process.env.JWT_EXPIRE,
+//   });
+// };
 
 userSchema.methods.checkPassword = async function (entered_password) {
   return await bcrypt.compare(entered_password, this.password);
