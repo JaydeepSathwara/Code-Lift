@@ -4,9 +4,11 @@ const User = require('../models/userModel');
 const generateToken = require('../utils/GenerateJWT_Token');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require("crypto");
+const bcrypt = require("bcrypt");
 // const Product = require("../models/productModel");
 // const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
+const bcrypt_secret = bcrypt.genSaltSync(10);
 
 // exports.registerUser = catchError(async (req, res, next) => {
 
@@ -36,26 +38,30 @@ const fs = require('fs');
 //   generateToken(user, 201, res);
 // })
 exports.registerUser = catchError(async (req, res, next) => {
-  res.json({ "userse": "jaydeep" });  const { name, email, password } = req.body;
+  const { name, email, password } = req.body;
   const userCheck = await User.findOne({ email });
+
   if (userCheck) {
-    res.status(400).json({ 'errorMessage': "Email Is Already In Use" });
+    return res.status(401).json({ errorMessage: "Email Is Already In Use" });
   }
+
   try {
     const UserData = await User.create({
       name, email, password: bcrypt.hashSync(password, bcrypt_secret)
     })
+
     res.json(UserData);
-  } catch (e) {
-    res.status(422).json(e);
+  } catch (error) {
+    next(error);
   }
-})
+});
 
 // User Login
 
 exports.loginUser = catchError(async (req, res, next) => {
   console.log("Hello bhai poch gai end pe congrats");
-  res.json({ "userse": "asd" });
+  res.json({ "users": "asd" });
+  console.log("Asddasd");
   const { email, password } = req.body;
 
   // Check if both email and password is entered by user
