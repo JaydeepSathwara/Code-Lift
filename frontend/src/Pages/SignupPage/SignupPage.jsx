@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, Navigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import axios from 'axios';
 import './SignupPage.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import validator from 'validator';
+import { UserContext } from '../../UserContext';
 
 const SignupPage = () => {
 
@@ -15,6 +16,8 @@ const SignupPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(0);
+    const { setUser } = useContext(UserContext);
+
     if (redirect) {
         return <Navigate to={'/'} />
         // Navigate(-1);
@@ -51,12 +54,12 @@ const SignupPage = () => {
                 toast.error(response.data.errorMessage);
             } else {
                 toast.success("Successfully Registered");
+                setUser(response.data);
                 setTimeout(() => {
                     setRedirect(true);
                   }, 2000);
             }
         } catch (error) {
-            console.log("Error: ", error);
             if (error.response && error.response.data && error.response.data.errorMessage) {
                 toast.error(error.response.data.errorMessage);
             } else {

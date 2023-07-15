@@ -9,7 +9,7 @@ import axios from 'axios';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import SignupPage from './Pages/SignupPage/SignupPage';
 
-axios.defaults.baseURL = 'http://localhost:8000/api/v1';
+axios.defaults.baseURL = 'http://localhost:8000/';
 axios.defaults.withCredentials = true;
 
 function App() {

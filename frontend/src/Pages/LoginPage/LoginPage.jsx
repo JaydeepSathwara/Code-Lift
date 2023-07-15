@@ -22,7 +22,6 @@ const LoginPage = () => {
       const response = await axios.post("/login", {
         email, password
       });
-      console.log("response", response);
       if (response.data.errorMessage) {
         toast.error(response.data.errorMessage);
       } else {
