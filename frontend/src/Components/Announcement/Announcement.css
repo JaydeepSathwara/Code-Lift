@@ -1,7 +1,7 @@
 .announcement-container{
     height: 30px;
     /* background-color: rgb(1, 101, 101); */
-    background-color: #019297;
+    background-color: var(--color-primary);
     color: white;
     display: flex;
     align-items: center;

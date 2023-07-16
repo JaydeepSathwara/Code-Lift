@@ -15,9 +15,14 @@ exports.registerUser = async (req, res) => {
     })
     jwt.sign({ name, email, id: UserData._id }, process.env.JWT_SECREAT, {}, (err, token) => {
       if (err) throw err;
-      return res.cookie('token', token).json(UserData);
+      const userDetails = {
+        name: name,
+        email: email,
+      };
+      return res.cookie('token', token).json(userDetails);
     });
   } catch (e) {
+    console.log(e);
     return res.status(422).json(e);
   }
 }
@@ -31,9 +36,11 @@ exports.loginUser = async (req, res) => {
       if (pwdCheck) {
         jwt.sign({ name: userCheck.name, email: userCheck.email, id: userCheck._id }, process.env.JWT_SECREAT, {}, (err, token) => {
           if (err) throw err;
-          const userData = userCheck;
-          delete userData.password;
-          res.status(200).cookie('token', token).json(userData);
+          const userDetails = {
+            name: userCheck.name,
+            email: userCheck.email,
+          };
+          return res.status(200).cookie('token', token).json(userDetails);
         })
       } else {
         res.status(400).json({ 'errorMessage': "Incorrect Email Or Password" });
@@ -42,6 +49,7 @@ exports.loginUser = async (req, res) => {
       res.status(400).json({ 'errorMessage': "Email Not Found. Register If Don't Have Account" });
     }
   } catch (error) {
+    console.log(error);
     res.status(422).json(error);
   }
 }
@@ -56,4 +64,7 @@ exports.getUserProfile = async (req, res) => {
   } else {
     res.json(null);
   }
+}
+exports.logoutUser = async (req, res) => {
+  res.cookie('token', '').json(true);
 }

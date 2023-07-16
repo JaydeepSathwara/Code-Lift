@@ -6,10 +6,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import { GrSearch } from 'react-icons/gr';
 import { BiSolidRightArrow } from 'react-icons/bi';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Navbar() {
 
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,6 +26,17 @@ function Navbar() {
     }
   };
 
+  async function logoutUser(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/logout');
+    } catch (error) {
+      toast.error("Oops... Something Went Wrong!");
+    }
+    setUser(null);
+    toast.success("Successfully Logout");
+    navigate('/');
+  }
 
   return (
     <Fragment>
@@ -34,7 +47,7 @@ function Navbar() {
             {/* <div className='nav-lang'>
             En
           </div> */}
-            {! isHomePage && (
+            {!isHomePage && (
               <div className='nav-search-Container'>
                 <form onSubmit={searchSubmitHandler}>
                   <input placeholder='Search' className='nav-search-Input' onChange={(e) => setKeyword(e.target.value)} />
@@ -62,15 +75,20 @@ function Navbar() {
                 </div>
               </>
             ) : (
-              <div className='nav-menu-Item'>
-                <Link className='nav-logo-Container-link' to='/account'><b>{user.name}</b></Link>
+              <div className="profile-section">
+                <div className='nav-menu-Item'>
+                  <Link className='nav-logo-Container-link' to='/account'><b>{user.name}</b></Link>
+                  <div className="nav-profile-dropdown">
+                  <Link className='nav-logo-Container-link' to='/account'>Profile</Link>
+                    <a href="" onClick={logoutUser} >Logout</a>
+                  </div>
+                </div>
+                <Link className='nav-logo-Container-link' to='/account'><i className="nav-fav-icon fa fa-bookmark" aria-hidden="true"></i></Link>
               </div>
             )}
-            <div className='nav-menu-Item'>
-              <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-            </div>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </Fragment>
   )

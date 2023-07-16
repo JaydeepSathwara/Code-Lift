@@ -3,6 +3,7 @@ const cors = require("cors");
 require('dotenv').config();
 require('./config.js');
 const UserRoute = require('./routes/UserRoute.js');
+const ArticleRoute = require('./routes/ArticleRoute.js');
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(
 app.use(cookieParser());
 
 app.use('/', UserRoute);
+app.use('/', ArticleRoute);
 
 // app.post("/signup", async (req, res) => {
 //     const { name, email, password } = req.body;
