@@ -77,13 +77,13 @@ function Navbar() {
             ) : (
               <div className="profile-section">
                 <div className='nav-menu-Item'>
-                  <Link className='nav-logo-Container-link' to='/account'><b>{user.name}</b></Link>
+                  <Link className='nav-logo-Container-link' to='/dashboard/profile'><b>{user.name}</b></Link>
                   <div className="nav-profile-dropdown">
-                  <Link className='nav-logo-Container-link' to='/account'>Profile</Link>
+                  <Link className='nav-logo-Container-link' to='/dashboard/profile'>Dashboard</Link>
                     <a href="" onClick={logoutUser} >Logout</a>
                   </div>
                 </div>
-                <Link className='nav-logo-Container-link' to='/account'><i className="nav-fav-icon fa fa-bookmark" aria-hidden="true"></i></Link>
+                <Link className='nav-logo-Container-link' to='/saved'><i className="nav-fav-icon fa fa-bookmark" aria-hidden="true"></i></Link>
               </div>
             )}
           </div>

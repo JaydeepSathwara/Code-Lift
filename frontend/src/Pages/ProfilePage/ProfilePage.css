@@ -1,0 +1,22 @@
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem;
+    /* background-color: aquamarine; */
+    background-color: rgb(238, 238, 238);
+    min-height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 10px 10px 20px rgb(0 0 0 / 0.2);
+    background-image: url(../../../public/assets/images/graphics2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-sidebar {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    /* background-color: rgb(255, 255, 255); */
+    min-height: 70vh;
+    width: 20rem;
+    justify-content: center;
+}

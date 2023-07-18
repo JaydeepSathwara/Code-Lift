@@ -1,0 +1,120 @@
+.profilecomponent-container {
+    margin: 20px;
+    height: 35rem;
+    width: 60rem;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    gap: 2rem;
+}
+
+.left-profile-container {
+    box-shadow: 0 3px 40px rgb(0 0 0 / 0.2);
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    width: 23rem;
+    border-radius: 10px;
+}
+
+.right-profile-container {
+    background-color: white;
+    border-radius: 10px;
+    width: 25rem;
+}
+
+.right-top-profile {
+    box-shadow: 0 3px 40px rgb(0 0 0 / 0.2);
+    background-color: rgb(255, 255, 255);
+    height: 15rem;
+    border-radius: 10px;
+    margin-bottom: 2.3rem;
+}
+
+.right-bottom-profile {
+    box-shadow: 0 3px 40px rgb(0 0 0 / 0.2);
+    background-color: rgb(255, 255, 255);
+    height: 15rem;
+    border-radius: 10px;
+}
+
+.profilecomponent-image img{
+    box-shadow: inset 2px 3px 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 21rem;
+    justify-content: center;
+    height: 15rem;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+}
+
+.change-profile-btn {
+    flex: 1 1 auto;
+    margin: 1px 10px;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+}
+
+.change-profile-btn:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+}
+
+.change-profile-btn {
+    background-image: linear-gradient(to right, #b565f6 0%, #65f6c8 51%, #85cffd 100%);
+    /* background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%); */
+    border: white;
+    font-size: 1rem;
+}
+
+.close_img {
+    position: absolute;
+    font-size: 50px;
+    top: 50px;
+    right: 10px;
+    color: rgb(255, 0, 51);
+    cursor: pointer;
+}
+
+.add-profile-img-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 4rem;
+}
+
+.change-profile-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+}
+
+.change-profile-form input {
+    margin: 20px;
+}
+
+.change-profile-file-input {
+    box-shadow: 1px 0px 2px #000000;
+    max-height: 150px;
+    padding: 39px;
+    width: 150px;
+    border-style: solid;
+    border-radius: 20px;
+    margin-left: 25px;
+    margin-top: 5px;
+    cursor: pointer;
+}

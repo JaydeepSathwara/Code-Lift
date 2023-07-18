@@ -8,6 +8,7 @@ import Articles from './Pages/Articles/Articles.jsx';
 import axios from 'axios';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import SignupPage from './Pages/SignupPage/SignupPage';
+import ProfilePage from './Pages/ProfilePage/ProfilePage.jsx';
 
 axios.defaults.baseURL = 'http://localhost:8000/';
 axios.defaults.withCredentials = true;
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/search/:keyword" element = {<Articles />} />
             <Route exact path="/login" element = {<LoginPage />} />
             <Route exact path="/signup" element = {<SignupPage />} />
+            <Route exact path="/dashboard/:page" element = {<ProfilePage />} />
           </Routes>
         </Router>
       </UserContextProvider>
