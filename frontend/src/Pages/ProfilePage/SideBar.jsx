@@ -42,18 +42,18 @@ const SideBar = ({ activeLink, setActiveLink, page }) => {
           </li>
           <li>
             <Link to='/dashboard/editprofile' className={linkClasses('editprofile')}>
-              <i class="fa fa-cogs" aria-hidden="true"></i>Edit Profile</Link>
+              <i className="fa fa-cogs" aria-hidden="true"></i>Edit Profile</Link>
           </li>
           <li>
             <Link to='/dashboard/writearticle' className={linkClasses('writearticle')}>
-              <i class="fa fa-book" aria-hidden="true"></i>Write Article</Link>
+              <i className="fa fa-book" aria-hidden="true"></i>Write Article</Link>
           </li>
           <li>
             <Link to='/dashboard/savedarticles' className={linkClasses('savedarticles')}>
-              <i class="fa fa-bookmark" aria-hidden="true"></i>Saved Articles</Link>
+              <i className="fa fa-bookmark" aria-hidden="true"></i>Saved Articles</Link>
           </li>
           <li>
-            <Link to='/' className='sidebar-link' onClick={logoutUser}><button className='sidebar-logoutbtn'><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</button></Link>
+            <Link to='/' className='sidebar-link' onClick={logoutUser}><button className='sidebar-logoutbtn'><i className="fa fa-sign-out" aria-hidden="true"></i>Logout</button></Link>
 
           </li>
         </ul>

@@ -2,7 +2,9 @@ import React, { Fragment, useState } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Sidebar from './SideBar.jsx';
 import './ProfilePage.css';
-import ProfileComponent from '../../Components/ProfileComponent/ProfileComponent.jsx'
+import ProfileComponent from '../../Components/ProfileComponent/ProfileComponent.jsx';
+import EditProfileComponent from '../../Components/EditProfileComponent/EditProfileComponent.jsx';
+import WriteArticle from '../../Components/WriteArticle/WriteArticle.jsx';
 import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
@@ -19,6 +21,21 @@ const ProfilePage = () => {
         </div>
         <div className="">
           {page === 'profile' && (
+            <div className="content">
+          <ProfileComponent />
+            </div>
+          )}
+          {page === 'editprofile' && (
+            <div className="content">
+          <EditProfileComponent />
+            </div>
+          )}
+          {page === 'writearticle' && (
+            <div className="content">
+          <WriteArticle />
+            </div>
+          )}
+          {page === 'savedarticles' && (
             <div className="content">
           <ProfileComponent />
             </div>

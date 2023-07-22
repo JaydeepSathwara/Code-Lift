@@ -20,6 +20,9 @@ app.use(cookieParser());
 app.use('/', UserRoute);
 app.use('/', ArticleRoute);
 
+app.use('/uploads', express.static(__dirname + '/public/uploads'));
+
+
 // app.post("/signup", async (req, res) => {
 //     const { name, email, password } = req.body;
 //     const userCheck = await User.findOne({ email });
@@ -37,4 +40,4 @@ app.use('/', ArticleRoute);
 //     }
 // })
 
-app.listen(8000);
+app.listen(8000, console.log("Server Is Hosted on http://localhost:8000/"));

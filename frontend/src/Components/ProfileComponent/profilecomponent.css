@@ -39,7 +39,7 @@
     border-radius: 10px;
 }
 
-.profilecomponent-image img{
+.profilecomponent-image img {
     box-shadow: inset 2px 3px 5px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
     width: 21rem;
@@ -59,6 +59,7 @@
     background-size: 200% auto;
     color: white;
     box-shadow: 0 0 20px #eee;
+    cursor: pointer;
     border-radius: 10px;
 }
 
@@ -101,20 +102,113 @@
     flex-direction: column;
     background-color: white;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
 }
 
 .change-profile-form input {
     margin: 20px;
 }
 
+.change-profile-form button {
+    margin: 2px;
+    padding: 10px 30px;
+}
+
 .change-profile-file-input {
-    box-shadow: 1px 0px 2px #000000;
-    max-height: 150px;
+    box-shadow: 0 3px 40px rgb(0 0 0 / 0.2);
     padding: 39px;
-    width: 150px;
+    width: 20rem;
+    height: 10rem;
+    padding: 20px;
     border-style: solid;
     border-radius: 20px;
-    margin-left: 25px;
+    margin: 25px;
     margin-top: 5px;
     cursor: pointer;
+}
+
+.change-profile-form input[type=file]::file-selector-button {
+    background-image: linear-gradient(to right, #4798f5 0%, #65f6c8 51%, #85cffd 100%);
+    padding: 20px 30px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.details {
+    margin: 20px;
+    margin-top: 5px;
+    min-height: 7rem;
+    font-weight: bold;
+}
+
+.details span{
+    font-size: 1.6rem;
+}
+
+.detail {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.edit-profile-btn {
+    flex: 1 1 auto;
+    margin: 1px 40px;
+    padding: 15px 50px;
+    width: 15rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-profile-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.edit-profile-btn :hover {
+    background-position: right center;
+    /* change the direction of the change here */
+}
+
+.edit-profile-btn {
+    background-image: linear-gradient(to right, #b565f6 0%, #65f6c8 51%, #24dfe9 100%);
+    /* background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%); */
+    border: white;
+    font-size: 1rem;
+}
+
+.profilecomponent-image .light-text {
+    font-size: 0.9rem;
+    color: grey;
+}
+
+.profile-image-preview {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 10px;
+}
+
+.remove-profile span{
+    color: rgb(0, 123, 255);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.remove-profile-btn {
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #f90a72 0%, #f6de65 51%, #f12c2c 100%);
+    /* background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%); */
+    font-size: 0.8rem;
+    font-weight: bold;
 }

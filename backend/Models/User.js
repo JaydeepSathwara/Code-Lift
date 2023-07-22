@@ -98,9 +98,13 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please Enter Your Password"],
+    required: [true, "Please Enter Your1 Password"],
     minLength: [8, "Password should be greater than 8 characters"],
     select: false,
+  },
+  profile_image:{
+    type: String,
+    default: "default_profile_pic"
   },
   isAdmin: {type: Number, default: 0}
 });
